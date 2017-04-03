@@ -250,3 +250,16 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# Antlr4 Generated Files
+AbstractClass.tokens
+AbstractClassBaseListener.java
+AbstractClassBaseVistor.java
+AbstractClassLexer.java
+AbstractClassLexer.tokens
+AbstractClassListener.java
+AbstractClassParser.java
+AbstractClassVisitor.java
+
+# Test C Sharp File
+test.cs
