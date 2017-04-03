@@ -16,8 +16,9 @@ public class AbstractClassParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, CLASSSCOPE=4, SCOPE=5, NAME=6, FUNCTION=7, VARIABLE=8, 
-		FUNCTYPE=9, VARTYPE=10, WS=11;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, CLASSSCOPE=7, SCOPE=8, 
+		NAME=9, MEMBER=10, FUNCTION=11, VARIABLE=12, PARAMETERS=13, PARAMETER=14, 
+		FUNCTYPE=15, VARTYPE=16, INT=17, FLOAT=18, STRING=19, WS=20;
 	public static final int
 		RULE_full = 0;
 	public static final String[] ruleNames = {
@@ -25,12 +26,12 @@ public class AbstractClassParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "' abstract class '", "'{'", "'}'", null, null, null, null, null, 
-		null, "'int'"
+		null, "' '", "'abstract class '", "'{'", "'}'", "'abstract '", "'class'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, "CLASSSCOPE", "SCOPE", "NAME", "FUNCTION", "VARIABLE", 
-		"FUNCTYPE", "VARTYPE", "WS"
+		null, null, null, null, null, null, null, "CLASSSCOPE", "SCOPE", "NAME", 
+		"MEMBER", "FUNCTION", "VARIABLE", "PARAMETERS", "PARAMETER", "FUNCTYPE", 
+		"VARTYPE", "INT", "FLOAT", "STRING", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -84,13 +85,9 @@ public class AbstractClassParser extends Parser {
 	public static class FullContext extends ParserRuleContext {
 		public TerminalNode NAME() { return getToken(AbstractClassParser.NAME, 0); }
 		public TerminalNode CLASSSCOPE() { return getToken(AbstractClassParser.CLASSSCOPE, 0); }
-		public List<TerminalNode> VARIABLE() { return getTokens(AbstractClassParser.VARIABLE); }
-		public TerminalNode VARIABLE(int i) {
-			return getToken(AbstractClassParser.VARIABLE, i);
-		}
-		public List<TerminalNode> FUNCTION() { return getTokens(AbstractClassParser.FUNCTION); }
-		public TerminalNode FUNCTION(int i) {
-			return getToken(AbstractClassParser.FUNCTION, i);
+		public List<TerminalNode> MEMBER() { return getTokens(AbstractClassParser.MEMBER); }
+		public TerminalNode MEMBER(int i) {
+			return getToken(AbstractClassParser.MEMBER, i);
 		}
 		public FullContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -116,56 +113,130 @@ public class AbstractClassParser extends Parser {
 		enterRule(_localctx, 0, RULE_full);
 		int _la;
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(3);
+			setState(40);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==CLASSSCOPE) {
+			switch (_input.LA(1)) {
+			case T__1:
+			case CLASSSCOPE:
+				enterOuterAlt(_localctx, 1);
 				{
-				setState(2);
-				match(CLASSSCOPE);
-				}
-			}
-
-			setState(5);
-			match(T__0);
-			setState(6);
-			match(NAME);
-			setState(7);
-			match(T__1);
-			setState(13);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==FUNCTION || _la==VARIABLE) {
-				{
-				setState(9); 
+				setState(4);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				do {
+				if (_la==CLASSSCOPE) {
 					{
+					setState(2);
+					match(CLASSSCOPE);
+					setState(3);
+					match(T__0);
+					}
+				}
+
+				setState(6);
+				match(T__1);
+				setState(7);
+				match(NAME);
+				setState(13);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==T__0) {
 					{
-					setState(8);
-					_la = _input.LA(1);
-					if ( !(_la==FUNCTION || _la==VARIABLE) ) {
-					_errHandler.recoverInline(this);
-					}
-					else {
-						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-						_errHandler.reportMatch(this);
-						consume();
-					}
-					}
-					}
-					setState(11); 
+					setState(9); 
 					_errHandler.sync(this);
 					_la = _input.LA(1);
-				} while ( _la==FUNCTION || _la==VARIABLE );
+					do {
+						{
+						{
+						setState(8);
+						match(T__0);
+						}
+						}
+						setState(11); 
+						_errHandler.sync(this);
+						_la = _input.LA(1);
+					} while ( _la==T__0 );
+					}
 				}
-			}
 
-			setState(15);
-			match(T__2);
+				setState(15);
+				match(T__2);
+				setState(21);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==MEMBER) {
+					{
+					setState(17); 
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+					do {
+						{
+						{
+						setState(16);
+						match(MEMBER);
+						}
+						}
+						setState(19); 
+						_errHandler.sync(this);
+						_la = _input.LA(1);
+					} while ( _la==MEMBER );
+					}
+				}
+
+				setState(23);
+				match(T__3);
+				}
+				break;
+			case T__4:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(24);
+				match(T__4);
+				setState(27);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==CLASSSCOPE) {
+					{
+					setState(25);
+					match(CLASSSCOPE);
+					setState(26);
+					match(T__0);
+					}
+				}
+
+				setState(29);
+				match(T__5);
+				setState(30);
+				match(NAME);
+				setState(31);
+				match(T__2);
+				setState(37);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==MEMBER) {
+					{
+					setState(33); 
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+					do {
+						{
+						{
+						setState(32);
+						match(MEMBER);
+						}
+						}
+						setState(35); 
+						_errHandler.sync(this);
+						_la = _input.LA(1);
+					} while ( _la==MEMBER );
+					}
+				}
+
+				setState(39);
+				match(T__3);
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -180,12 +251,20 @@ public class AbstractClassParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\r\24\4\2\t\2\3\2"+
-		"\5\2\6\n\2\3\2\3\2\3\2\3\2\6\2\f\n\2\r\2\16\2\r\5\2\20\n\2\3\2\3\2\3\2"+
-		"\2\2\3\2\2\3\3\2\t\n\2\25\2\5\3\2\2\2\4\6\7\6\2\2\5\4\3\2\2\2\5\6\3\2"+
-		"\2\2\6\7\3\2\2\2\7\b\7\3\2\2\b\t\7\b\2\2\t\17\7\4\2\2\n\f\t\2\2\2\13\n"+
-		"\3\2\2\2\f\r\3\2\2\2\r\13\3\2\2\2\r\16\3\2\2\2\16\20\3\2\2\2\17\13\3\2"+
-		"\2\2\17\20\3\2\2\2\20\21\3\2\2\2\21\22\7\5\2\2\22\3\3\2\2\2\5\5\r\17";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\26-\4\2\t\2\3\2\3"+
+		"\2\5\2\7\n\2\3\2\3\2\3\2\6\2\f\n\2\r\2\16\2\r\5\2\20\n\2\3\2\3\2\6\2\24"+
+		"\n\2\r\2\16\2\25\5\2\30\n\2\3\2\3\2\3\2\3\2\5\2\36\n\2\3\2\3\2\3\2\3\2"+
+		"\6\2$\n\2\r\2\16\2%\5\2(\n\2\3\2\5\2+\n\2\3\2\2\2\3\2\2\2\2\64\2*\3\2"+
+		"\2\2\4\5\7\t\2\2\5\7\7\3\2\2\6\4\3\2\2\2\6\7\3\2\2\2\7\b\3\2\2\2\b\t\7"+
+		"\4\2\2\t\17\7\13\2\2\n\f\7\3\2\2\13\n\3\2\2\2\f\r\3\2\2\2\r\13\3\2\2\2"+
+		"\r\16\3\2\2\2\16\20\3\2\2\2\17\13\3\2\2\2\17\20\3\2\2\2\20\21\3\2\2\2"+
+		"\21\27\7\5\2\2\22\24\7\f\2\2\23\22\3\2\2\2\24\25\3\2\2\2\25\23\3\2\2\2"+
+		"\25\26\3\2\2\2\26\30\3\2\2\2\27\23\3\2\2\2\27\30\3\2\2\2\30\31\3\2\2\2"+
+		"\31+\7\6\2\2\32\35\7\7\2\2\33\34\7\t\2\2\34\36\7\3\2\2\35\33\3\2\2\2\35"+
+		"\36\3\2\2\2\36\37\3\2\2\2\37 \7\b\2\2 !\7\13\2\2!\'\7\5\2\2\"$\7\f\2\2"+
+		"#\"\3\2\2\2$%\3\2\2\2%#\3\2\2\2%&\3\2\2\2&(\3\2\2\2\'#\3\2\2\2\'(\3\2"+
+		"\2\2()\3\2\2\2)+\7\6\2\2*\6\3\2\2\2*\32\3\2\2\2+\3\3\2\2\2\13\6\r\17\25"+
+		"\27\35%\'*";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

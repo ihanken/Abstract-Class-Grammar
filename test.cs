@@ -1,13 +1,5 @@
-public abstract class Animal {
-    public abstract void cry();
-}
-
-public class Dog: Animal {
-    void cry() {
-    }
-
-    public static void main(String args[]){
-       Animal obj = new Dog();
-       obj.cry();
-    }
+abstract class WashingMachine {
+   abstract public void Wash();
+   abstract public void Rinse(int loadSize);
+   abstract public long Spin(int speed);
 }

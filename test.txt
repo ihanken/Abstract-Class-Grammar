@@ -1,6 +1,8 @@
-public abstract class Animal {
-    private int id;
-    private int name;
-    public abstract void Cat();
-    public abstract void Dog();
-}
+abstract class BaseClass
+    {
+        protected int _x;
+        protected int _y;
+        public abstract void AbstractMethod();
+        public abstract int X;
+        public abstract int Y;
+    }
