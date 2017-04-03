@@ -1,8 +1,3 @@
-abstract class BaseClass
-    {
-        protected int _x;
-        protected int _y;
-        public abstract void AbstractMethod();
-        public abstract int X;
-        public abstract int Y;
+public abstract class A : D {
+
     }

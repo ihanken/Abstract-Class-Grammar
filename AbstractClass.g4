@@ -3,8 +3,8 @@ grammar AbstractClass;
 
 // Full class rule.
 full
-    : (CLASSSCOPE ' ')? 'abstract class ' NAME (' '+)? '{' (MEMBER+)? '}'
-    | 'abstract ' (CLASSSCOPE ' ')?  'class' NAME '{' (MEMBER+)? '}'
+    : (CLASSSCOPE ' ')? 'abstract class ' NAME INHERIT? (' '+)? '{' (MEMBER+)? '}'
+    | 'abstract ' (CLASSSCOPE ' ')?  'class' NAME INHERIT? (' '+)? '{' (MEMBER+)? '}'
     ;
 
 // Scope of an abstract class. Can only be public or internal.
@@ -18,6 +18,10 @@ SCOPE
     : CLASSSCOPE
     | 'private'
     | 'protected'
+    ;
+
+INHERIT
+    : (' '+)? ':' (' '+)? NAME
     ;
 
 // The name of a variable, class, etc.
@@ -80,19 +84,19 @@ VARTYPE
 
 // All valid integers.
 INT
- : [0-9]+
- ;
+    : [0-9]+
+    ;
 
 // All valid floats
 FLOAT
- : [0-9]+ '.' [0-9]*
- | '.' [0-9]+
- ;
+    : [0-9]+ '.' [0-9]*
+    | '.' [0-9]+
+    ;
 
 // All valid strings
 STRING
- : '"' (~["\r\n] | '""')* '"'
- ;
+    : '"' (~["\r\n] | '""')* '"'
+    ;
 
 WS
     : [ \t\r\n]+ -> skip // skip spaces, tabs, newlines
