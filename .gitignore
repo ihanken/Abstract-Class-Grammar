@@ -254,7 +254,7 @@ paket-files/
 # Antlr4 Generated Files
 AbstractClass.tokens
 AbstractClassBaseListener.java
-AbstractClassBaseVistor.java
+AbstractClassBaseVisitor.java
 AbstractClassLexer.java
 AbstractClassLexer.tokens
 AbstractClassListener.java
