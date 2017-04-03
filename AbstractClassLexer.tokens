@@ -1,0 +1,15 @@
+T__0=1
+T__1=2
+T__2=3
+CLASSSCOPE=4
+SCOPE=5
+NAME=6
+FUNCTION=7
+VARIABLE=8
+FUNCTYPE=9
+VARTYPE=10
+WS=11
+' abstract class '=1
+'{'=2
+'}'=3
+'int'=10
