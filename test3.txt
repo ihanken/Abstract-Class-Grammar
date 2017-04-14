@@ -1,0 +1,3 @@
+internal abstract class ChildClass {
+    private abstract void foo(int bar);
+}

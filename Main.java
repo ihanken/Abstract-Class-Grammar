@@ -11,7 +11,10 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        if (!(new File(args[0])).exists()) {
+        if (args.length < 1) {
+            System.out.println("\nError: No file supplied. Please try again.");
+        }
+        else if (!(new File(args[0])).exists()) {
             System.out.println("\nError: " + args[0] + " does not exist. Please try again.");
         }
         else {

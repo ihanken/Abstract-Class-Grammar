@@ -1,0 +1,111 @@
+<ebnf> "C# Abstract Class" = {
+full        = (classscope " " | "") "abstract class " name (inherit | "") (" " {" "} | "") "{" (member {member} | "") "}"
+            | "abstract " (classscope " " | "") "class" name (inherit | "") (" " {" "} | "") "{" (member {member} | "") "}" .
+classscope  = "public"
+            | "internal" .
+scope       = classscope
+            | "private"
+            | "protected" .
+inherit     = (" " {" "} | "") ":" (" " {" "} | "") name .
+name        = ("_" | "") uppercase {lowercase} .
+member      = function
+            | variable .
+function    = (scope " " | "") "abstract " functype " " name "(" (parameters | "") ");"
+            | "abstract " (scope " " | "") functype " " name "(" (parameters | "") ");" .
+variable    = (scope " " | "") ("abstract " | "") vartype ";"
+            | ("abstract " | "") (scope " " | "") vartype ";" .
+parameters  = parameter {parameter} .
+parameter   = vartype " " name .
+functype    = vartype
+            | "void" .
+vartype     = "bool " name (("= " ("true" | "false")) | "")
+            | "byte " name ("= " int | "")
+            | "sbyte " name ("= " int | "")
+            | "char " name ("= " char | "")
+            | "decimal " name ("= " float | "")
+            | "double " name ("= " float | "")
+            | "float " name ("= " float | "")
+            | "int " name ("= " int | "")
+            | "uint " name ("= " int | "")
+            | "long " name ("= " int | "")
+            | "ulong " name ("= " int | "")
+            | "object " name
+            | "short " name ("= " int | "")
+            | "ushort " name ("= " int | "")
+            | "string " na,e ("= " string | "") .
+float       = (int | "") "." int .
+int         = "0" {int}
+            | "1" {int}
+            | "2" {int}
+            | "3" {int}
+            | "4" {int}
+            | "5" {int}
+            | "6" {int}
+            | "7" {int}
+            | "8" {int}
+            | "9" {int} .
+string      = '"' char {char} '"' .
+char        = "\0"
+            | " "
+            ...
+            | "z" .
+
+uppercase   = "A"
+            | "B"
+            | "C"
+            | "D"
+            | "E"
+            | "F"
+            | "G"
+            | "H"
+            | "I"
+            | "J"
+            | "K"
+            | "L"
+            | "M"
+            | "N"
+            | "O"
+            | "P"
+            | "Q"
+            | "R"
+            | "S"
+            | "T"
+            | "U"
+            | "V"
+            | "W"
+            | "X"
+            | "Y"
+            | "Z" .
+lowercase   = "a"
+            | "b"
+            | "c"
+            | "d"
+            | "e"
+            | "f"
+            | "g"
+            | "h"
+            | "i"
+            | "j"
+            | "k"
+            | "l"
+            | "m"
+            | "n"
+            | "o"
+            | "p"
+            | "q"
+            | "r"
+            | "s"
+            | "t"
+            | "u"
+            | "v"
+            | "w"
+            | "x"
+            | "y"
+            | "z" .
+
+
+
+
+
+
+} </ebnf>

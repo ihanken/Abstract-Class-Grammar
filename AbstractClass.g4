@@ -3,21 +3,14 @@ grammar AbstractClass;
 
 // Full class rule.
 full
-    : (CLASSSCOPE ' ')? 'abstract class ' NAME INHERIT? (' '+)? '{' (MEMBER+)? '}'
-    | 'abstract ' (CLASSSCOPE ' ')?  'class' NAME INHERIT? (' '+)? '{' (MEMBER+)? '}'
+    : (CLASSSCOPE ' ')? 'abstract class ' NAME INHERIT? BODY?
+    | 'abstract ' (CLASSSCOPE ' ')?  'class' NAME INHERIT? BODY?
     ;
 
 // Scope of an abstract class. Can only be public or internal.
 CLASSSCOPE
     : 'public'
     | 'internal'
-    ;
-
-// Scope of anything other than a class.
-SCOPE
-    : CLASSSCOPE
-    | 'private'
-    | 'protected'
     ;
 
 INHERIT
@@ -27,6 +20,10 @@ INHERIT
 // The name of a variable, class, etc.
 NAME
     : '_'? [A-Za-z]+
+    ;
+
+BODY
+    : '{' ((' '+)? MEMBER (' '+)?)+ '}'
     ;
 
 MEMBER
@@ -44,6 +41,13 @@ FUNCTION
 VARIABLE
     : (SCOPE ' ')? 'abstract '? VARTYPE ';' // Scope first.
     | 'abstract '? (SCOPE ' ')? VARTYPE ';' // 'abstract' first.
+    ;
+
+// Scope of anything other than a class.
+SCOPE
+    : CLASSSCOPE
+    | 'private'
+    | 'protected'
     ;
 
 // A set of function parameters.
